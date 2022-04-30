@@ -21,9 +21,16 @@ namespace Biblioteca_G9
         }
         public static void contestarConsulta()
         {
+            
 
         }
         public static void hacerPedido()
+        {
+            Pedido pedido = new Pedido();
+
+        }
+
+        public static void mostrarUsuarios()
         {
 
         }

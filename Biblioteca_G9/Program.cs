@@ -11,11 +11,11 @@ namespace Biblioteca_G9
                 while (true)
                 {
                     Console.Clear();
-                    Console.WriteLine("[1] Actualizar Stock");
-                    Console.WriteLine("[2] Contestar Consulta");
-                    Console.WriteLine("[3] Realizar Pedido");
-                    Console.WriteLine("[4] Mostrar Usuarios");
-                    Console.WriteLine("[0] Salir");
+                    Console.WriteLine("[ 1 ] Actualizar Stock");
+                    Console.WriteLine("[ 2 ] Contestar Consulta");
+                    Console.WriteLine("[ 3 ] Realizar Pedido");
+                    Console.WriteLine("[ 4 ] Mostrar Usuarios");
+                    Console.WriteLine("[ 0 ] Salir");
 
                     string input = Console.ReadLine();
                     casos_menuB(input);
@@ -27,11 +27,11 @@ namespace Biblioteca_G9
                 while (true)
                 {
                     Console.Clear();
-                    Console.WriteLine("[1] Llevar libro");
-                    Console.WriteLine("[2] Devolver libro");
-                    Console.WriteLine("[3] Realizar Consulta");
-                    Console.WriteLine("[4] Realizar Sugerencia");
-                    Console.WriteLine("[0] Salir");
+                    Console.WriteLine("[ 1 ] Llevar libro");
+                    Console.WriteLine("[ 2 ] Devolver libro");
+                    Console.WriteLine("[ 3 ] Realizar Consulta");
+                    Console.WriteLine("[ 4 ] Realizar Sugerencia");
+                    Console.WriteLine("[ 0 ] Salir");
 
                     string input = Console.ReadLine();
                     casos_menuC(input);
@@ -59,10 +59,12 @@ namespace Biblioteca_G9
                         break;
                     case "4":
                         Console.Clear();
+                        Bibliotecario.mostrarUsuarios();
                         Console.ReadKey();
                         break;
                     case "0":
                         Console.Clear();
+                        Environment.Exit(0);
                         Console.ReadKey();
                         break;
                 }
@@ -78,18 +80,22 @@ namespace Biblioteca_G9
                         break;
                     case "2":
                         Console.Clear();
+                        Cliente.devolverLibro();
                         Console.ReadKey();
                         break;
                     case "3":
                         Console.Clear();
+                        Cliente.hacerConsulta();
                         Console.ReadKey();
                         break;
                     case "4":
                         Console.Clear();
+                        Cliente.hacerSugerencia();
                         Console.ReadKey();
                         break;
                     case "0":
                         Console.Clear();
+                        Environment.Exit(0);
                         Console.ReadKey();
                         break;
                 }
@@ -98,27 +104,40 @@ namespace Biblioteca_G9
 
         static void Main(string[] args)
         {
-            Console.WriteLine("*** INGRESAR COMO ***");
-            Console.WriteLine("1. Cliente");
-            Console.WriteLine("2. Bibliotecario");
-
-            string input = Console.ReadLine().Trim();
-
-            switch (input)
+            while (true)
             {
-                case "1":
+                Console.Clear();
+                Console.WriteLine(" ------------------- ");
+                Console.WriteLine("|   INGRESAR COMO   |");
+                Console.WriteLine(" ------------------- ");
+                Console.WriteLine("[ 1 ] Cliente");
+                Console.WriteLine("[ 2 ] Bibliotecario");
+
+                string opcion = Console.ReadLine().Trim();
+
+                if (opcion == "")
+                {
+                    Console.Clear();
+                    Console.WriteLine("No hay valor ingresado.");
+                    Console.ReadKey();
+                }
+                else if (opcion == "1")
+                {
                     Console.Clear();
                     Menu.menuCliente();
-                    break;
-
-                case"2":
+                }
+                else if (opcion == "2")
+                {
                     Console.Clear();
                     Menu.menuBibliotecario();
-                    break;
-
+                }
+                else
+                {
+                    Console.Clear();
+                    Console.WriteLine("Ingrese un valor correcto.");
+                    Console.ReadKey();
+                }
             }
-            
-
             
         }
     }
