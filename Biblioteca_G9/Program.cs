@@ -6,7 +6,7 @@ namespace Biblioteca_G9
     {
         class Menu
         {
-            void menuBibliotecario()
+            public static void menuBibliotecario()
             {
                 while (true)
                 {
@@ -18,7 +18,7 @@ namespace Biblioteca_G9
                     Console.WriteLine("[0] Salir");
 
                     string input = Console.ReadLine();
-                    casos_menu(input);
+                    casos_menuB(input);
                 }
 
             }
@@ -34,11 +34,40 @@ namespace Biblioteca_G9
                     Console.WriteLine("[0] Salir");
 
                     string input = Console.ReadLine();
-                    casos_menu(input);
+                    casos_menuC(input);
                 }
 
             }
-            static void casos_menu(string input)
+            static void casos_menuB(string input)
+            {
+                switch (input)
+                {
+                    case "1":
+                        Console.Clear();
+                        Bibliotecario.actualizarStock();
+                        Console.ReadKey();
+                        break;
+                    case "2":
+                        Console.Clear();
+                        Bibliotecario.contestarConsulta();
+                        Console.ReadKey();
+                        break;
+                    case "3":
+                        Console.Clear();
+                        Bibliotecario.hacerPedido();
+                        Console.ReadKey();
+                        break;
+                    case "4":
+                        Console.Clear();
+                        Console.ReadKey();
+                        break;
+                    case "0":
+                        Console.Clear();
+                        Console.ReadKey();
+                        break;
+                }
+            }
+            static void casos_menuC(string input)
             {
                 switch (input)
                 {
@@ -69,32 +98,26 @@ namespace Biblioteca_G9
 
         static void Main(string[] args)
         {
-            /*
-            Console.WriteLine("********* CREACION DE NUEVO USUARIO ******");
-            Console.WriteLine("Ingrese C.I.: ");
-            int Nci = int.Parse(Console.ReadLine());
+            Console.WriteLine("*** INGRESAR COMO ***");
+            Console.WriteLine("1. Cliente");
+            Console.WriteLine("2. Bibliotecario");
 
-            Console.WriteLine("Ingrese Constraseña: ");
-            string Ncontraseña = Console.ReadLine();
+            string input = Console.ReadLine().Trim();
 
-            Console.WriteLine("Ingrese Nombres: ");
-            string Nnombre = Console.ReadLine();
+            switch (input)
+            {
+                case "1":
+                    Console.Clear();
+                    Menu.menuCliente();
+                    break;
 
-            Console.WriteLine("Ingrese Apellidos: ");
-            string Napellido = Console.ReadLine();
+                case"2":
+                    Console.Clear();
+                    Menu.menuBibliotecario();
+                    break;
 
-            Console.WriteLine("Ingrese Email: ");
-            string Nemail = Console.ReadLine();
-
-            Console.WriteLine("Ingrese Direccion: ");
-            string Ndireccion = Console.ReadLine();
-
-            Usuario usuario = new Usuario(Nci, Ncontraseña, Nnombre, Napellido, Nemail, Ndireccion);
-
-            Console.WriteLine("Usuario: "+usuario);
-            */
-
-            Menu.menuCliente();
+            }
+            
 
             
         }

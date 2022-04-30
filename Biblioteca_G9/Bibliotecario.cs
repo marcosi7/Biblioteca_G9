@@ -15,15 +15,15 @@ namespace Biblioteca_G9
         {
         }
 
-        static void actualizarStock()
+        public static void actualizarStock()
         {
 
         }
-        static void contestarConsulta()
+        public static void contestarConsulta()
         {
 
         }
-        static void hacerPedido()
+        public static void hacerPedido()
         {
 
         }

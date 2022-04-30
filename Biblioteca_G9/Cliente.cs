@@ -18,13 +18,17 @@ namespace Biblioteca_G9
 
         public static void llevarLibro()
         {
-            Console.WriteLine("Hola");
+
         }
-        static void devolverLibro()
+        public static void devolverLibro()
         {
 
         }
-        static void hacerConsulta()
+        public static void hacerConsulta()
+        {
+
+        }
+        public static void hacerSugerencia()
         {
 
         }
