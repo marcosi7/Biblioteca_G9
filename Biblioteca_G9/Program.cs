@@ -4,9 +4,47 @@ namespace Biblioteca_G9
 {
     public class Biblioteca
     {
-        class Menu
+        public class Programa
         {
-            public static void menuBibliotecario()
+            public void Menu()
+            {
+                while (true)
+                {
+                    Console.Clear();
+                    Console.WriteLine(" ------------------- ");
+                    Console.WriteLine("|   INGRESAR COMO   |");
+                    Console.WriteLine(" ------------------- ");
+                    Console.WriteLine("[ 1 ] Cliente");
+                    Console.WriteLine("[ 2 ] Bibliotecario");
+
+                    string opcion = Console.ReadLine().Trim();
+
+                    if (opcion == "")
+                    {
+                        Console.Clear();
+                        Console.WriteLine("No hay valor ingresado.");
+                        Console.ReadKey();
+                    }
+                    else if (opcion == "1")
+                    {
+                        Console.Clear();
+                        menuCliente();
+                    }
+                    else if (opcion == "2")
+                    {
+                        Console.Clear();
+                        menuBibliotecario();
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Ingrese un valor correcto.");
+                        Console.ReadKey();
+                    }
+                }
+
+            }
+            public void menuBibliotecario()
             {
                 while (true)
                 {
@@ -18,11 +56,11 @@ namespace Biblioteca_G9
                     Console.WriteLine("[ 0 ] Salir");
 
                     string input = Console.ReadLine();
-                    casos_menuB(input);
+                    casos_bibliotecario(input);
                 }
 
             }
-            public static void menuCliente()
+            public void menuCliente()
             {
                 while (true)
                 {
@@ -34,32 +72,33 @@ namespace Biblioteca_G9
                     Console.WriteLine("[ 0 ] Salir");
 
                     string input = Console.ReadLine();
-                    casos_menuC(input);
+                    casos_cliente(input);
                 }
 
             }
-            static void casos_menuB(string input)
+            public void casos_bibliotecario(string input)
             {
+                Bibliotecario bl = new Bibliotecario();
                 switch (input)
                 {
                     case "1":
                         Console.Clear();
-                        Bibliotecario.actualizarStock();
+                        bl.actualizarStock();
                         Console.ReadKey();
                         break;
                     case "2":
                         Console.Clear();
-                        Bibliotecario.contestarConsulta();
+                        bl.contestarConsulta();
                         Console.ReadKey();
                         break;
                     case "3":
                         Console.Clear();
-                        Bibliotecario.hacerPedido();
+                        bl.hacerPedido();
                         Console.ReadKey();
                         break;
                     case "4":
                         Console.Clear();
-                        Bibliotecario.mostrarUsuarios();
+                        bl.mostrarUsuarios();
                         Console.ReadKey();
                         break;
                     case "0":
@@ -69,28 +108,29 @@ namespace Biblioteca_G9
                         break;
                 }
             }
-            static void casos_menuC(string input)
+            public void casos_cliente(string input)
             {
+                Cliente cl = new Cliente();
                 switch (input)
                 {
                     case "1":
                         Console.Clear();
-                        Cliente.llevarLibro();
+                        cl.llevarLibro();
                         Console.ReadKey();
                         break;
                     case "2":
                         Console.Clear();
-                        Cliente.devolverLibro();
+                        cl.devolverLibro();
                         Console.ReadKey();
                         break;
                     case "3":
                         Console.Clear();
-                        Cliente.hacerConsulta();
+                        cl.hacerConsulta();
                         Console.ReadKey();
                         break;
                     case "4":
                         Console.Clear();
-                        Cliente.hacerSugerencia();
+                        cl.hacerSugerencia();
                         Console.ReadKey();
                         break;
                     case "0":
@@ -101,44 +141,10 @@ namespace Biblioteca_G9
                 }
             }
         }
-
         static void Main(string[] args)
         {
-            while (true)
-            {
-                Console.Clear();
-                Console.WriteLine(" ------------------- ");
-                Console.WriteLine("|   INGRESAR COMO   |");
-                Console.WriteLine(" ------------------- ");
-                Console.WriteLine("[ 1 ] Cliente");
-                Console.WriteLine("[ 2 ] Bibliotecario");
-
-                string opcion = Console.ReadLine().Trim();
-
-                if (opcion == "")
-                {
-                    Console.Clear();
-                    Console.WriteLine("No hay valor ingresado.");
-                    Console.ReadKey();
-                }
-                else if (opcion == "1")
-                {
-                    Console.Clear();
-                    Menu.menuCliente();
-                }
-                else if (opcion == "2")
-                {
-                    Console.Clear();
-                    Menu.menuBibliotecario();
-                }
-                else
-                {
-                    Console.Clear();
-                    Console.WriteLine("Ingrese un valor correcto.");
-                    Console.ReadKey();
-                }
-            }
-            
+            Programa programa = new Programa();
+            programa.Menu();
         }
     }
 }

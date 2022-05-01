@@ -6,32 +6,50 @@ using System.Threading.Tasks;
 
 namespace Biblioteca_G9
 {
-    internal class Cliente : Usuario
+    public class Cliente
     {
         //cliente hereda datos de usuario
         //cliente hace una consulta
         //cliente lleva un libro
         //cliente escribe una sugerencia
-        public Cliente(int ci, string contraseña, string nombre, string apellidos, string email, string direccion) : base(ci, contraseña, nombre, apellidos, email, direccion)
+
+        ListaEnlazada miLista = new ListaEnlazada();
+
+        void AgregarItem(Nodo unNodo)
         {
+            if (unNodo != null)
+            {
+                Console.WriteLine(unNodo.Nombre);
+                AgregarItem(unNodo.Siguiente);
+            }
         }
 
-        public static void llevarLibro()
+        #region Metodos
+        public void llevarLibro()
+        {
+            Console.WriteLine("Ingrese Nombre del Pedido");
+            string holas = Console.ReadLine();
+
+            Nodo nuevoNodo = new Nodo();
+            nuevoNodo.Nombre = holas;
+
+            miLista.AgregarInicio(nuevoNodo);
+
+            AgregarItem(miLista.Inicio);
+        }
+        public void devolverLibro()
         {
 
         }
-        public static void devolverLibro()
+        public void hacerConsulta()
         {
 
         }
-        public static void hacerConsulta()
+        public void hacerSugerencia()
         {
 
         }
-        public static void hacerSugerencia()
-        {
-
-        }
+        #endregion
 
     }
 }
