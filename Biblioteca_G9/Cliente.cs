@@ -21,12 +21,12 @@ namespace Biblioteca_G9
             Console.WriteLine("Ingrese Nombre del Pedido");
             string holas = Console.ReadLine();
 
-            Nodo nuevoNodo = new Nodo();
-            nuevoNodo.Dato = holas;
+            //Nodo nuevoNodo = new Nodo();
+           // nuevoNodo.Dato = holas;
 
-            miLista.AgregarInicio(nuevoNodo);
+            //miLista.AgregarInicio(nuevoNodo);
 
-            miLista.AgregarItem(miLista.Inicio);
+            //miLista.AgregarItem(miLista.Inicio);
 
         }
         public void devolverLibro()

@@ -28,24 +28,16 @@ namespace Biblioteca_G9
         public void hacerPedido()
         {
             Console.WriteLine("Ingrese Nombre del Pedido");
-            string holas = Console.ReadLine();
+            string input1 = Console.ReadLine();
 
             Console.WriteLine("Ingrese Nombre del Pedido");
-            string hh = Console.ReadLine();
+            string input2 = Console.ReadLine();
 
-            Nodo nuevoNodo = new Nodo();
-            nuevoNodo.Dato = holas;
+            miLista.AgregarInicio(input1);
 
-            Nodo nuevoNodo2 = new Nodo();
-            nuevoNodo2.Dato = hh;
+            miLista.AgregarInicio(input2);
 
-            miLista.AgregarInicio(nuevoNodo);
-            miLista.AgregarFinal(nuevoNodo2);
-
-            miLista.AgregarItem(miLista.Inicio);
-
-            //Console.WriteLine(pedido);
-            //Pedido pedido = new Pedido();
+            miLista.MostrarLista();
 
         }
         public void mostrarUsuarios()
