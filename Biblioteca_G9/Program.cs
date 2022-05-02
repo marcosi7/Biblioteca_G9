@@ -11,9 +11,9 @@ namespace Biblioteca_G9
                 while (true)
                 {
                     Console.Clear();
-                    Console.WriteLine(" ------------------- ");
-                    Console.WriteLine("|   INGRESAR COMO   |");
-                    Console.WriteLine(" ------------------- ");
+                    Console.WriteLine(" -------------------------------- ");
+                    Console.WriteLine("|   SELECCIONE DE TIPO USUARIO   |");
+                    Console.WriteLine(" -------------------------------- ");
                     Console.WriteLine("[ 1 ] Cliente");
                     Console.WriteLine("[ 2 ] Bibliotecario");
 
@@ -55,7 +55,7 @@ namespace Biblioteca_G9
                     Console.WriteLine("[ 4 ] Mostrar Usuarios");
                     Console.WriteLine("[ 0 ] Salir");
 
-                    string input = Console.ReadLine();
+                    int input = int.Parse(Console.ReadLine());
                     casos_bibliotecario(input);
                 }
 
@@ -71,69 +71,69 @@ namespace Biblioteca_G9
                     Console.WriteLine("[ 4 ] Realizar Sugerencia");
                     Console.WriteLine("[ 0 ] Salir");
 
-                    string input = Console.ReadLine();
+                    int input = int.Parse(Console.ReadLine());
                     casos_cliente(input);
                 }
 
             }
-            public void casos_bibliotecario(string input)
+            public void casos_bibliotecario(int input)
             {
                 Bibliotecario bl = new Bibliotecario();
                 switch (input)
                 {
-                    case "1":
+                    case 1:
                         Console.Clear();
                         bl.actualizarStock();
                         Console.ReadKey();
                         break;
-                    case "2":
+                    case 2:
                         Console.Clear();
                         bl.contestarConsulta();
                         Console.ReadKey();
                         break;
-                    case "3":
+                    case 3:
                         Console.Clear();
                         bl.hacerPedido();
                         Console.ReadKey();
                         break;
-                    case "4":
+                    case 4:
                         Console.Clear();
                         bl.mostrarUsuarios();
                         Console.ReadKey();
                         break;
-                    case "0":
+                    case 0:
                         Console.Clear();
                         Environment.Exit(0);
                         Console.ReadKey();
                         break;
                 }
             }
-            public void casos_cliente(string input)
+            public void casos_cliente(int input)
             {
                 Cliente cl = new Cliente();
                 switch (input)
                 {
-                    case "1":
+                    case 1:
                         Console.Clear();
                         cl.llevarLibro();
                         Console.ReadKey();
                         break;
-                    case "2":
+                    case 2:
                         Console.Clear();
                         cl.devolverLibro();
                         Console.ReadKey();
                         break;
-                    case "3":
+                    case 3:
                         Console.Clear();
                         cl.hacerConsulta();
                         Console.ReadKey();
                         break;
-                    case "4":
+                    case 4:
                         Console.Clear();
                         cl.hacerSugerencia();
                         Console.ReadKey();
                         break;
-                    case "0":
+                    case 0:
                         Console.Clear();
                         Environment.Exit(0);
                         Console.ReadKey();

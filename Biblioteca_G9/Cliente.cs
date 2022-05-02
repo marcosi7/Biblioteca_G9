@@ -8,21 +8,7 @@ namespace Biblioteca_G9
 {
     public class Cliente
     {
-        //cliente hereda datos de usuario
-        //cliente hace una consulta
-        //cliente lleva un libro
-        //cliente escribe una sugerencia
-
         ListaEnlazada miLista = new ListaEnlazada();
-
-        void AgregarItem(Nodo unNodo)
-        {
-            if (unNodo != null)
-            {
-                Console.WriteLine(unNodo.Nombre);
-                AgregarItem(unNodo.Siguiente);
-            }
-        }
 
         #region Metodos
         public void llevarLibro()
@@ -31,11 +17,12 @@ namespace Biblioteca_G9
             string holas = Console.ReadLine();
 
             Nodo nuevoNodo = new Nodo();
-            nuevoNodo.Nombre = holas;
+            nuevoNodo.Dato = holas;
 
             miLista.AgregarInicio(nuevoNodo);
 
-            AgregarItem(miLista.Inicio);
+            miLista.AgregarItem(miLista.Inicio);
+
         }
         public void devolverLibro()
         {
@@ -43,10 +30,43 @@ namespace Biblioteca_G9
         }
         public void hacerConsulta()
         {
+            Console.WriteLine("Escriba su consulta: ");
+            string mensaje = Console.ReadLine();
+
+            string fecha = DateTime.Now.ToString();  
+            string respuesta = " - ";
+            bool pendiente = true;
+
+            //Consulta consulta = new Consulta(mensaje,fecha,respuesta,pendiente);
+            //Console.WriteLine("consulta");
 
         }
         public void hacerSugerencia()
         {
+            Console.WriteLine("Escriba su sugerencia: ");
+            string mensaje = Console.ReadLine();
+
+            string fecha = DateTime.Now.ToString();
+
+            Console.WriteLine("Porfavor seleccione nivel de importancia.");
+            Console.WriteLine("[ 1 ] Muy Importante");
+            Console.WriteLine("[ 2 ] Poco Importante");
+
+            int input = int.Parse(Console.ReadLine());
+
+            string importancia = "";
+
+            if (input == 1)
+            {
+                importancia = "Muy Importante";
+            }
+
+            else if (input == 2)
+            {
+                importancia = "Poco Importante";
+            }
+
+            //Sugerencia sugerencia = new Sugerencia(mensaje,fecha,importancia);
 
         }
         #endregion
