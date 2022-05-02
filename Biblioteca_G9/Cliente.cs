@@ -6,8 +6,13 @@ using System.Threading.Tasks;
 
 namespace Biblioteca_G9
 {
-    public class Cliente
+    public class Cliente : Usuario
     {
+        public Cliente(int ci, string nombre, string apellidos, string email, string direccion) : base(ci, nombre, apellidos, email, direccion)
+        {
+
+        }
+
         ListaEnlazada miLista = new ListaEnlazada();
 
         #region Metodos

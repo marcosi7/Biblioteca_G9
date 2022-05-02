@@ -46,6 +46,34 @@ namespace Biblioteca_G9
             }
             public void menuBibliotecario()
             {
+                Console.Clear();
+                Console.WriteLine("Ingrese numero C.I.: ");
+                int Nci = int.Parse(Console.ReadLine());
+
+                Console.Clear();
+                Console.WriteLine("Ingrese Nombres: ");
+                string Nnombre = Console.ReadLine();
+
+                Console.Clear();
+                Console.WriteLine("Ingrese Apellidos: ");
+                string Napellido = Console.ReadLine();
+
+                Console.Clear();
+                Console.WriteLine("Ingrese Email: ");
+                string Nemail = Console.ReadLine();
+
+                Console.Clear();
+                Console.WriteLine("Ingrese Direccion: ");
+                string Ndireccion = Console.ReadLine();
+
+                Bibliotecario bl = new Bibliotecario(Nci, Nnombre, Napellido, Nemail, Ndireccion);
+
+                Console.Clear();
+                Console.WriteLine(bl);
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Registrado Correctamente.", Console.ForegroundColor);
+                Console.ReadKey();
+                Console.ResetColor();
                 while (true)
                 {
                     Console.Clear();
@@ -56,12 +84,41 @@ namespace Biblioteca_G9
                     Console.WriteLine("[ 0 ] Salir");
 
                     int input = int.Parse(Console.ReadLine());
-                    casos_bibliotecario(input);
+                    casos_bibliotecario(input, bl);
                 }
 
             }
             public void menuCliente()
             {
+                Console.Clear();
+                Console.WriteLine("Ingrese numero C.I.: ");
+                int Nci = int.Parse(Console.ReadLine());
+
+                Console.Clear();
+                Console.WriteLine("Ingrese Nombres: ");
+                string Nnombre = Console.ReadLine();
+
+                Console.Clear();
+                Console.WriteLine("Ingrese Apellidos: ");
+                string Napellido = Console.ReadLine();
+
+                Console.Clear();
+                Console.WriteLine("Ingrese Email: ");
+                string Nemail = Console.ReadLine();
+
+                Console.Clear();
+                Console.WriteLine("Ingrese Direccion: ");
+                string Ndireccion = Console.ReadLine();
+
+                Cliente cl = new Cliente(Nci, Nnombre, Napellido, Nemail, Ndireccion);
+
+                Console.Clear();
+                Console.WriteLine(cl);
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Registrado Correctamente.",Console.ForegroundColor);
+                Console.ReadKey();
+                Console.ResetColor();
+
                 while (true)
                 {
                     Console.Clear();
@@ -72,32 +129,35 @@ namespace Biblioteca_G9
                     Console.WriteLine("[ 0 ] Salir");
 
                     int input = int.Parse(Console.ReadLine());
-                    casos_cliente(input);
+                    casos_cliente(input, cl);
                 }
 
             }
-            public void casos_bibliotecario(int input)
+            public void casos_bibliotecario(int input, Bibliotecario bl)
             {
-                Bibliotecario bl = new Bibliotecario();
                 switch (input)
                 {
                     case 1:
                         Console.Clear();
+                        Console.WriteLine(bl);
                         bl.actualizarStock();
                         Console.ReadKey();
                         break;
                     case 2:
                         Console.Clear();
+                        Console.WriteLine(bl);
                         bl.contestarConsulta();
                         Console.ReadKey();
                         break;
                     case 3:
                         Console.Clear();
+                        Console.WriteLine(bl);
                         bl.hacerPedido();
                         Console.ReadKey();
                         break;
                     case 4:
                         Console.Clear();
+                        Console.WriteLine(bl);
                         bl.mostrarUsuarios();
                         Console.ReadKey();
                         break;
@@ -108,9 +168,8 @@ namespace Biblioteca_G9
                         break;
                 }
             }
-            public void casos_cliente(int input)
+            public void casos_cliente(int input, Cliente cl)
             {
-                Cliente cl = new Cliente();
                 switch (input)
                 {
                     case 1:

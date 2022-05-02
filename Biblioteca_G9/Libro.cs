@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Biblioteca_G9
 {
-    internal class Libro
+    public class Libro
     {
     }
 }
