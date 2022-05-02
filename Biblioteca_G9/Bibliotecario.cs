@@ -22,7 +22,6 @@ namespace Biblioteca_G9
         }
         public void contestarConsulta()
         {
-            
 
         }
         public void hacerPedido()
@@ -37,7 +36,7 @@ namespace Biblioteca_G9
 
             miLista.AgregarInicio(input2);
 
-            miLista.MostrarLista();
+            miLista.Display();
 
         }
         public void mostrarUsuarios()

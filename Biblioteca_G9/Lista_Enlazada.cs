@@ -9,8 +9,6 @@ namespace Biblioteca_G9
     public class ListaEnlazada
     {
         public Nodo Inicio;
-        static Nodo f;
-        static Nodo t;
 
         public Nodo BuscarUltimo(Nodo unNodo)
         {
@@ -53,7 +51,7 @@ namespace Biblioteca_G9
             }
         }
         //listar
-        public void MostrarLista()
+        public void Display()
         {
             Nodo tnodo = Inicio;
             while (tnodo != null)
@@ -62,8 +60,7 @@ namespace Biblioteca_G9
                 tnodo = tnodo.Siguiente;
             }
         }
-
-        public void Eliminar(string recibido)
+        public void Remove(string recibido)
         {
             Nodo temporal = Inicio, prev = null;
 
@@ -81,6 +78,18 @@ namespace Biblioteca_G9
             if (temporal != null)
                 return;
             prev.Siguiente = temporal.Siguiente;
+
+        }
+        public void Clear()
+        {
+            Nodo temporal = Inicio;
+            while(Inicio != null)
+            {
+                temporal = Inicio;
+                Inicio = Inicio.Siguiente;
+
+                temporal = null;
+            }
 
         }
 
