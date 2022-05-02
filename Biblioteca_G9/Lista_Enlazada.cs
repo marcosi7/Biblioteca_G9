@@ -21,6 +21,7 @@ namespace Biblioteca_G9
             }
         }
 
+        //append
         public void AgregarInicio(Nodo unNodo)
         {
             if (Inicio == null)
@@ -34,7 +35,7 @@ namespace Biblioteca_G9
                 Inicio.Siguiente = aux;
             }
         }
-
+        //2
         public void AgregarFinal(Nodo unNodo)
         {
             if (Inicio == null)
@@ -47,7 +48,7 @@ namespace Biblioteca_G9
                 aux.Siguiente = unNodo;
             }
         }
-
+        //listar
         public void AgregarItem(Nodo unNodo)
         {
             if (unNodo != null)
