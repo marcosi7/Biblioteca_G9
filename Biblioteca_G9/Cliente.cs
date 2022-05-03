@@ -13,20 +13,13 @@ namespace Biblioteca_G9
 
         }
 
-        ListaEnlazada miLista = new ListaEnlazada();
+        //ListaEnlazada miLista = new ListaEnlazada();
+        ListaEnlazada consultas = new ListaEnlazada();
+        ListaEnlazada sugerencias = new ListaEnlazada();
 
         #region Metodos
         public void llevarLibro()
         {
-            Console.WriteLine("Ingrese Nombre del Pedido");
-            string holas = Console.ReadLine();
-
-            //Nodo nuevoNodo = new Nodo();
-           // nuevoNodo.Dato = holas;
-
-            //miLista.AgregarInicio(nuevoNodo);
-
-            //miLista.AgregarItem(miLista.Inicio);
 
         }
         public void devolverLibro()
@@ -35,15 +28,19 @@ namespace Biblioteca_G9
         }
         public void hacerConsulta()
         {
+            consultas.Display();
             Console.WriteLine("Escriba su consulta: ");
-            string mensaje = Console.ReadLine();
 
+            string mensaje = Console.ReadLine();
             string fecha = DateTime.Now.ToString();  
             string respuesta = " - ";
-            bool pendiente = true;
+            string pend = "PENDIENTE";
 
-            //Consulta consulta = new Consulta(mensaje,fecha,respuesta,pendiente);
-            //Console.WriteLine("consulta");
+            Console.Clear();
+            Consulta consulta = new Consulta(mensaje,fecha,respuesta,pend);
+            consultas.Append(consulta.ToString());
+
+            consultas.Display();
 
         }
         public void hacerSugerencia()
@@ -52,6 +49,8 @@ namespace Biblioteca_G9
             string mensaje = Console.ReadLine();
 
             string fecha = DateTime.Now.ToString();
+
+            Console.Clear();
 
             Console.WriteLine("Porfavor seleccione nivel de importancia.");
             Console.WriteLine("[ 1 ] Muy Importante");
@@ -71,7 +70,16 @@ namespace Biblioteca_G9
                 importancia = "Poco Importante";
             }
 
-            //Sugerencia sugerencia = new Sugerencia(mensaje,fecha,importancia);
+            Console.Clear();
+
+            Console.WriteLine("Escriba el tema: ");
+            string tema = Console.ReadLine();
+
+            Console.Clear();
+            Sugerencia sugerencia = new Sugerencia(mensaje,fecha,importancia,tema);
+            sugerencias.Append(sugerencia.ToString());
+
+            sugerencias.Display();
 
         }
         #endregion

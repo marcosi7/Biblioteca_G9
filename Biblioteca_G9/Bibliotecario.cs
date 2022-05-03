@@ -18,53 +18,32 @@ namespace Biblioteca_G9
         #region Metodos
         public void actualizarStock()
         {
+            string titulo = Console.ReadLine();
+            string autor = Console.ReadLine();
+            string genero = Console.ReadLine();
+            string editorial = Console.ReadLine();
+            string edicion = Console.ReadLine();
+            int stock = int.Parse(Console.ReadLine());
+
+            Libro libra = new Libro(titulo,autor,genero,editorial,edicion,stock);
+
+            Console.WriteLine(libra);
 
         }
         public void contestarConsulta()
         {
-            
 
         }
         public void hacerPedido()
         {
-            Console.WriteLine("Ingrese Nombre del Pedido");
-            string input1 = Console.ReadLine();
+            Console.WriteLine("Ingrese numero pedido: ");
+            int nPedido = int.Parse(Console.ReadLine());
+            int precioTotal = int.Parse(Console.ReadLine());
+            string fecha = DateTime.Now.ToString();
 
-            Console.WriteLine("Ingrese Nombre del Pedido");
-            string input2 = Console.ReadLine();
 
-            miLista.AgregarInicio(input1);
+            Pedido pedido = new Pedido(nPedido,precioTotal,fecha);
 
-            miLista.AgregarInicio(input2);
-
-            miLista.MostrarLista();
-
-        }
-        public void mostrarUsuarios()
-        {
-            /*Console.Clear();
-            Console.WriteLine("Ingrese C.I.: ");
-            int Nci = int.Parse(Console.ReadLine());
-
-            Console.WriteLine("Ingrese Constraseña: ");
-            string Ncontraseña = Console.ReadLine();
-
-            Console.WriteLine("Ingrese Nombres: ");
-            string Nnombre = Console.ReadLine();
-
-            Console.WriteLine("Ingrese Apellidos: ");
-            string Napellido = Console.ReadLine();
-
-            Console.WriteLine("Ingrese Email: ");
-            string Nemail = Console.ReadLine();
-
-            Console.WriteLine("Ingrese Direccion: ");
-            string Ndireccion = Console.ReadLine();
-
-            Cliente cliente = new Cliente(Nci, Ncontraseña, Nnombre, Napellido, Nemail, Ndireccion);
-
-            Console.WriteLine("Usuario: " + cliente);
-            Console.ReadKey();*/
         }
         #endregion
     }

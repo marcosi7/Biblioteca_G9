@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Biblioteca_G9
 {
-    internal class Consulta
+    public class Consulta
     {
         private string mensaje { get; set; }
         private string fecha { get; set; }
