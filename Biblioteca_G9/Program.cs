@@ -80,7 +80,6 @@ namespace Biblioteca_G9
                     Console.WriteLine("[ 1 ] Actualizar Stock");
                     Console.WriteLine("[ 2 ] Contestar Consulta");
                     Console.WriteLine("[ 3 ] Realizar Pedido");
-                    Console.WriteLine("[ 4 ] Mostrar Usuarios");
                     Console.WriteLine("[ 0 ] Salir");
 
                     int input = int.Parse(Console.ReadLine());
@@ -153,12 +152,6 @@ namespace Biblioteca_G9
                         Console.Clear();
                         Console.WriteLine(bl);
                         bl.hacerPedido();
-                        Console.ReadKey();
-                        break;
-                    case 4:
-                        Console.Clear();
-                        Console.WriteLine(bl);
-                        bl.mostrarUsuarios();
                         Console.ReadKey();
                         break;
                     case 0:

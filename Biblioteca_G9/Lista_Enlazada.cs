@@ -10,19 +10,7 @@ namespace Biblioteca_G9
     {
         public Nodo Inicio;
 
-        public Nodo BuscarUltimo(Nodo unNodo)
-        {
-            if (unNodo.Siguiente == null)
-            {
-                return unNodo;
-            }
-            else
-            {
-                return BuscarUltimo(unNodo.Siguiente);
-            }
-        }
-        //append
-        public void AgregarInicio(string recibido)
+        public void Push(string recibido)
         {
             Nodo tnodo = new Nodo(recibido);
             if (Inicio == null)
@@ -36,27 +24,28 @@ namespace Biblioteca_G9
                 Inicio.Siguiente = aux;
             }
         }
-        //2
-        public void AgregarFinal(Nodo unNodo)
+        public void Append(string recibido)
         {
+            Nodo tnodo = new Nodo(recibido);
             if (Inicio == null)
             {
-                Inicio = unNodo;
+                Inicio = tnodo;
             }
             else
             {
-                Nodo aux = BuscarUltimo(Inicio);
-                aux.Siguiente = unNodo;
+                Nodo aux = LastItem(Inicio);
+                aux.Siguiente = tnodo;
             }
         }
-        //listar
-        public void Display()
+        public Nodo LastItem(Nodo unNodo)
         {
-            Nodo tnodo = Inicio;
-            while (tnodo != null)
+            if (unNodo.Siguiente == null)
             {
-                Console.WriteLine("Valor devuelto: " + tnodo.Dato);
-                tnodo = tnodo.Siguiente;
+                return unNodo;
+            }
+            else
+            {
+                return LastItem(unNodo.Siguiente);
             }
         }
         public void Remove(string recibido)
@@ -79,6 +68,15 @@ namespace Biblioteca_G9
             prev.Siguiente = temporal.Siguiente;
 
         }
+        public void Display()
+        {
+            Nodo tnodo = Inicio;
+            while (tnodo != null)
+            {
+                Console.WriteLine(tnodo.Dato + " | ");
+                tnodo = tnodo.Siguiente;
+            }
+        }
         public void Clear()
         {
             Nodo temporal = Inicio;
@@ -91,41 +89,18 @@ namespace Biblioteca_G9
             }
 
         }
-        //********agregando nuevos metodos*************
-        /*public void append(object datos)
+        public void Reverse()
         {
-            Nodo toAdd = new Nodo();
-
-            toAdd.Dato = datos;
-            toAdd.Siguiente = Inicio;
-            this.Inicio = toAdd;
-        }*/
-        //list.index(x[, start[, end]])
-        /*public void index(object data)
-        {
-            //recorremos al lista hasta encontrar una conincidencia de dato en el nodo
-            //cada recorrido de nodo es ++i inia de 0 -n lod indices
-            if (unNodo != null)
-            {
-                Console.WriteLine("Valor devuelto: " + unNodo.Dato);
-                AgregarItem(unNodo.Siguiente);
-            }
-        }*/
-        //reverse()
-        public void reverse()
-        {
-            //asisnamos los nuevos valores a los nodos
             Nodo current = Inicio;
             bool sw = true;
             Nodo temp =null ;
 
             while (current != null)
             {
-                //para el primer y antiguo valor sin modificar
-                 Nodo siguienteNodo =current.Siguiente ;//siguiente nodo antigui que le sigue
+                Nodo siguienteNodo =current.Siguiente ;
                 if(sw){
-                current.Siguiente = temp;//primer nodo 1 a null
-                temp = current;//guardamos el primer nodo con su nuevo siguiente 
+                current.Siguiente = temp;
+                temp = current;
                 sw = false;
                 }else{
                     current.Siguiente = temp;
@@ -153,7 +128,7 @@ namespace Biblioteca_G9
 
     public class Nodo
     {
-        public object Dato;
+        public string Dato;
         public Nodo Siguiente;
 
         public Nodo(string d)
