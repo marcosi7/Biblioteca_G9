@@ -14,8 +14,8 @@ namespace Biblioteca_G9
                     Console.WriteLine(" -------------------------------- ");
                     Console.WriteLine("|   SELECCIONE DE TIPO USUARIO   |");
                     Console.WriteLine(" -------------------------------- ");
-                    Console.WriteLine("[ 1 ] Cliente");
-                    Console.WriteLine("[ 2 ] Bibliotecario");
+                    Color("1", " Cliente");
+                    Color("2", " Bibliotecario");
 
                     string opcion = Console.ReadLine().Trim();
 
@@ -43,6 +43,14 @@ namespace Biblioteca_G9
                     }
                 }
 
+            }
+            public static void Color(string prefix, string msj)
+            {
+                Console.Write("[ ");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.Write(prefix, Console.ForegroundColor);
+                Console.ResetColor();
+                Console.WriteLine(" ]" + msj);
             }
             public void menuBibliotecario()
             {
@@ -77,10 +85,10 @@ namespace Biblioteca_G9
                 while (true)
                 {
                     Console.Clear();
-                    Console.WriteLine("[ 1 ] Actualizar Stock");
-                    Console.WriteLine("[ 2 ] Contestar Consulta");
-                    Console.WriteLine("[ 3 ] Realizar Pedido");
-                    Console.WriteLine("[ 0 ] Salir");
+                    Color("1", " Agregar Libros");
+                    Color("2", " Contestar Consulta");
+                    Color("3", " Realizar Pedido");
+                    Color("0", " Salir");
 
                     int input = int.Parse(Console.ReadLine());
                     casos_bibliotecario(input, bl);
@@ -121,11 +129,11 @@ namespace Biblioteca_G9
                 while (true)
                 {
                     Console.Clear();
-                    Console.WriteLine("[ 1 ] Llevar libro");
-                    Console.WriteLine("[ 2 ] Devolver libro");
-                    Console.WriteLine("[ 3 ] Realizar Consulta");
-                    Console.WriteLine("[ 4 ] Realizar Sugerencia");
-                    Console.WriteLine("[ 0 ] Salir");
+                    Color("1", " Llevar libro");
+                    Color("2", " Devolver libro");
+                    Color("3", " Realizar Consulta");
+                    Color("4", " Realizar Sugerencia");
+                    Color("0", " Salir");
 
                     int input = int.Parse(Console.ReadLine());
                     casos_cliente(input, cl);
@@ -139,7 +147,7 @@ namespace Biblioteca_G9
                     case 1:
                         Console.Clear();
                         Console.WriteLine(bl);
-                        bl.actualizarStock();
+                        bl.agregarLibros();
                         Console.ReadKey();
                         break;
                     case 2:

@@ -8,9 +8,6 @@ namespace Biblioteca_G9
 {
     public class Detalle_Pedido
     {
-
-        //public Pedido pedido = new Pedido();
-
         private int cantidad { get; set; }
         private int precio { get; set; }
         public Detalle_Pedido(int cantidad, int precio)
@@ -20,7 +17,7 @@ namespace Biblioteca_G9
         }
         public override string ToString()
         {
-            return $"{cantidad} | {precio}";
+            return $" [C]{cantidad} [P]{precio}";
         }
     }
 }

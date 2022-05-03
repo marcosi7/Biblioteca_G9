@@ -38,7 +38,7 @@ namespace Biblioteca_G9
 
             Console.Clear();
             Consulta consulta = new Consulta(mensaje,fecha,respuesta,pend);
-            consultas.Append(consulta.ToString());
+            consultas.Append(consulta);
 
             consultas.Display();
 
@@ -77,7 +77,7 @@ namespace Biblioteca_G9
 
             Console.Clear();
             Sugerencia sugerencia = new Sugerencia(mensaje,fecha,importancia,tema);
-            sugerencias.Append(sugerencia.ToString());
+            sugerencias.Append(sugerencia);
 
             sugerencias.Display();
 

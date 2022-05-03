@@ -26,7 +26,7 @@ namespace Biblioteca_G9
         }
         public override string ToString()
         {
-            return $"{titulo} | {stock}";
+            return $"(T){titulo}, (A){autor}, (E){edicion}, (G){genero}, (E){editorial}, (S){stock}";
         }
 
     }

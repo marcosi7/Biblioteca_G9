@@ -10,7 +10,7 @@ namespace Biblioteca_G9
     {
         public Nodo Inicio;
 
-        public void Push(string recibido)
+        public void Push(object recibido)
         {
             Nodo tnodo = new Nodo(recibido);
             if (Inicio == null)
@@ -24,7 +24,7 @@ namespace Biblioteca_G9
                 Inicio.Siguiente = aux;
             }
         }
-        public void Append(string recibido)
+        public void Append(object recibido)
         {
             Nodo tnodo = new Nodo(recibido);
             if (Inicio == null)
@@ -48,7 +48,7 @@ namespace Biblioteca_G9
                 return LastItem(unNodo.Siguiente);
             }
         }
-        public void Remove(string recibido)
+        public void Remove(object recibido)
         {
             Nodo temporal = Inicio, prev = null;
 
@@ -68,16 +68,6 @@ namespace Biblioteca_G9
             prev.Siguiente = temporal.Siguiente;
 
         }
-        //********agregando nuevos metodos*************
-          public void append(object datos)
-    {
-        Nodo toAdd = new Nodo();
-
-        toAdd.Dato = datos;
-        toAdd.Siguiente = Inicio;
-        this.Inicio = toAdd;
-    }
-     
         public void Display()
         {
             Nodo tnodo = Inicio;
@@ -103,46 +93,28 @@ namespace Biblioteca_G9
         {
             Nodo current = Inicio;
             bool sw = true;
-            Nodo temp =null ;
+            Nodo temp = null;
 
             while (current != null)
             {
-                Nodo siguienteNodo =current.Siguiente ;
-                if(sw){
-                current.Siguiente = temp;
-                temp = current;
-                sw = false;
-                }else{
+                Nodo siguienteNodo = current.Siguiente;
+                if (sw)
+                {
+                    current.Siguiente = temp;
+                    temp = current;
+                    sw = false;
+                }
+                else
+                {
                     current.Siguiente = temp;
                     temp = current;
                 }
                 current = siguienteNodo;
             }
-        //reverse()
-         public void reverse(){
-        //asisnamos los nuevos valores a los nodos
-        Nodo current = Inicio;
-        bool sw = true;
-        Nodo temp =null ;
-        while (current != null)
-        {
-            //para el primer y antiguo valor sin modificar
-             Nodo siguienteNodo =current.Siguiente ;//siguiente nodo antigui que le sigue
-            if(sw){
-            current.Siguiente = temp;//primer nodo 1 a null
-            temp = current;//guardamos el primer nodo con su nuevo siguiente 
-            sw = false;
-            }else{
-                current.Siguiente = temp;
-                temp = current;
-            }
-            current = siguienteNodo;
-        }
 
-        Inicio = temp;
-    }
-         //list.count(x)// la cantidad de repeticiones de un elemento x
-        public int count(object obj) { 
+            Inicio = temp;
+        }
+        public int Count(object obj) { 
             int cantidad = 0;
 
             //int count = 0;
@@ -158,9 +130,8 @@ namespace Biblioteca_G9
             }
             return cantidad;
         }
-         //list.index(x) *6
-        //Returns the index of the first element with the specified value
-        public int index(object data) { 
+        public int Index(object data)
+        { 
             int index = 0;
             Nodo current = Inicio;
             while (current != null)
@@ -175,14 +146,12 @@ namespace Biblioteca_G9
             }
             return index;
         }
-        //list.copy() *10
-        public ListaEnlazada copy() {
+        public ListaEnlazada Copy()
+        {
             ListaEnlazada lista = new ListaEnlazada();
             lista.Inicio = Inicio;
             return lista;
         
-        }
-            Inicio = temp;
         }
         public void printAllNodes()
         {
@@ -201,10 +170,10 @@ namespace Biblioteca_G9
 
     public class Nodo
     {
-        public string Dato;
+        public object Dato;
         public Nodo Siguiente;
 
-        public Nodo(string d)
+        public Nodo(object d)
         {
             Dato = d;
             Siguiente = null;
