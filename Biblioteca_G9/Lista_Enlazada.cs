@@ -92,19 +92,9 @@ namespace Biblioteca_G9
         toAdd.Siguiente = Inicio;
         this.Inicio = toAdd;
     }
-        //list.index(x[, start[, end]])
-        public void index(object data)
-        {
-            //recorremos al lista hasta encontrar una conincidencia de dato en el nodo
-            //cada recorrido de nodo es ++i inia de 0 -n lod indices
-            if (unNodo != null)
-            {
-                Console.WriteLine("Valor devuelto: " + unNodo.Dato);
-                AgregarItem(unNodo.Siguiente);
-            }
-        }
+     
         //reverse()
-          public void reverse(){
+         public void reverse(){
         //asisnamos los nuevos valores a los nodos
         Nodo current = Inicio;
         bool sw = true;
@@ -126,6 +116,47 @@ namespace Biblioteca_G9
 
         Inicio = temp;
     }
+         //list.count(x)// la cantidad de repeticiones de un elemento x
+        public int count(object obj) { 
+            int cantidad = 0;
+
+            //int count = 0;
+            Nodo current = Inicio;
+            while (current != null)
+            {
+                
+                //if (current.Dato == obj) {
+                    if (obj.Equals(current.Dato)){
+                        cantidad = cantidad + 1;
+                }
+                current = current.Siguiente;
+            }
+            return cantidad;
+        }
+         //list.index(x) *6
+        //Returns the index of the first element with the specified value
+        public int index(object data) { 
+            int index = 0;
+            Nodo current = Inicio;
+            while (current != null)
+            {
+                
+                if (data.Equals(current.Dato))
+                {
+                    break; 
+                }
+                index = index + 1;
+                current = current.Siguiente;
+            }
+            return index;
+        }
+        //list.copy() *10
+        public ListaEnlazada copy() {
+            ListaEnlazada lista = new ListaEnlazada();
+            lista.Inicio = Inicio;
+            return lista;
+        
+        }
         public void printAllNodes()
     {
         int count = 0;
