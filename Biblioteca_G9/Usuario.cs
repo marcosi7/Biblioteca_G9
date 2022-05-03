@@ -9,16 +9,14 @@ namespace Biblioteca_G9
     public class Usuario
     {
         private int ci { get; set; }
-        private string contraseña { get; set; }
         private string nombre { get; set; }
         private string apellidos { get; set; }
         private string email { get; set; }
         private string direccion { get; set; }
 
-        public Usuario(int ci, string contraseña, string nombre, string apellidos, string email, string direccion)
+        public Usuario(int ci, string nombre, string apellidos, string email, string direccion)
         {
             this.ci = ci;
-            this.contraseña = contraseña;
             this.nombre = nombre;
             this.apellidos = apellidos;
             this.email = email;
@@ -26,7 +24,7 @@ namespace Biblioteca_G9
         }
         public override string ToString()
         {
-            return $"{ci} | {contraseña} | {nombre} | {apellidos} | {email} | {direccion}";
+            return $"Id Usuario: {ci} | Nombres y Apellidos: {nombre} {apellidos} | Email: {email}";
         }
     }
 }

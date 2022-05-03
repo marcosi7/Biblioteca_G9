@@ -6,8 +6,13 @@ using System.Threading.Tasks;
 
 namespace Biblioteca_G9
 {
-    public class Cliente
+    public class Cliente : Usuario
     {
+        public Cliente(int ci, string nombre, string apellidos, string email, string direccion) : base(ci, nombre, apellidos, email, direccion)
+        {
+
+        }
+
         ListaEnlazada miLista = new ListaEnlazada();
 
         #region Metodos
@@ -16,12 +21,12 @@ namespace Biblioteca_G9
             Console.WriteLine("Ingrese Nombre del Pedido");
             string holas = Console.ReadLine();
 
-            Nodo nuevoNodo = new Nodo();
-            nuevoNodo.Dato = holas;
+            //Nodo nuevoNodo = new Nodo();
+           // nuevoNodo.Dato = holas;
 
-            miLista.AgregarInicio(nuevoNodo);
+            //miLista.AgregarInicio(nuevoNodo);
 
-            miLista.AgregarItem(miLista.Inicio);
+            //miLista.AgregarItem(miLista.Inicio);
 
         }
         public void devolverLibro()

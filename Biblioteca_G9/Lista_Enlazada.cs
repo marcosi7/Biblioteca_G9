@@ -9,6 +9,9 @@ namespace Biblioteca_G9
     public class ListaEnlazada
     {
         public Nodo Inicio;
+        static Nodo f;
+        static Nodo t;
+
         public Nodo BuscarUltimo(Nodo unNodo)
         {
             if (unNodo.Siguiente == null)
@@ -22,16 +25,17 @@ namespace Biblioteca_G9
         }
 
         //append
-        public void AgregarInicio(Nodo unNodo)
+        public void AgregarInicio(string recibido)
         {
+            Nodo tnodo = new Nodo(recibido);
             if (Inicio == null)
             {
-                Inicio = unNodo;
+                Inicio = tnodo;
             }
             else
             {
                 Nodo aux = Inicio;
-                Inicio = unNodo;
+                Inicio = tnodo;
                 Inicio.Siguiente = aux;
             }
         }
@@ -49,13 +53,35 @@ namespace Biblioteca_G9
             }
         }
         //listar
-        public void AgregarItem(Nodo unNodo)
+        public void MostrarLista()
         {
-            if (unNodo != null)
+            Nodo tnodo = Inicio;
+            while (tnodo != null)
             {
-                Console.WriteLine("Valor devuelto: " + unNodo.Dato);
-                AgregarItem(unNodo.Siguiente);
+                Console.WriteLine("Valor devuelto: " + tnodo.Dato);
+                tnodo = tnodo.Siguiente;
             }
+        }
+
+        public void Eliminar(string recibido)
+        {
+            Nodo temporal = Inicio, prev = null;
+
+            if (temporal != null && temporal.Dato == recibido)
+            {
+                Inicio = temporal.Siguiente;
+                return;
+            }
+            while (temporal != null && temporal.Dato == recibido)
+            {
+                prev = temporal;
+                temporal = temporal.Siguiente;
+            }
+
+            if (temporal != null)
+                return;
+            prev.Siguiente = temporal.Siguiente;
+
         }
         //********agregando nuevos metodos*************
           public void append(object datos)
@@ -119,6 +145,12 @@ namespace Biblioteca_G9
     {
         public object Dato;
         public Nodo Siguiente;
+
+        public Nodo(string d)
+        {
+            Dato = d;
+            Siguiente = null;
+        }
     }
 
 
