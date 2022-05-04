@@ -16,6 +16,7 @@ namespace Biblioteca_G9
         ListaEnlazada miLista = new ListaEnlazada();
         ListaEnlazada libros = new ListaEnlazada();
         ListaEnlazada pedidos = new ListaEnlazada();
+        ListaEnlazada consultas = new ListaEnlazada();
 
         #region Metodos
         public void agregarLibros()
@@ -85,8 +86,26 @@ namespace Biblioteca_G9
 
         }
         public void contestarConsulta()
-        {
+        { 
+            Console.WriteLine("Lista de Consultas");
+            consultas.Display();
+             
+             string mensa = Console.ReadLine();
+             string fecha = DateTime.Now.ToString();
+             string respuest=" ";
+             string pendi = "Pendiente";
+               
+                if(pendi == "Pendiente")
+                {
+                    Console.WriteLine("Ingrese su respuesta");
+                    string respuest2 = Console.ReadLine();
+                    pendi="Respondido";  
+                }
+            Console.Clear();
+            Consulta consulta = new Consulta(mensa,fecha,pendi,respuest);
+            consultas.Append(consulta);
             
+            consultas.Display();
 
         }
         public void hacerPedido()
