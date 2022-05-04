@@ -2,12 +2,51 @@
 
 namespace Biblioteca_G9
 {
+    public static class Global
+    {
+        public static string name="royer";
+        public static ListaEnlazada biblioteLibros = new ListaEnlazada();
+       
+
+    }
     public class Biblioteca
     {
         public class Programa
         {
             public void Menu()
             {
+                /*  VARIBLE GLOBAL DE Lista de libros
+                 *  
+                 */
+                //----
+                Console.Clear();
+
+                Libro libro = new Libro("la cabaña", "Raul", "6ta", "Otro", "lumbreras", 2);
+               Global.biblioteLibros.Append(libro);
+                Libro libro1 = new Libro("mateFacil", "Marcelo", "1ra", "Educativo", "Santillana", 1);
+                Global.biblioteLibros.Append(libro1);
+                Libro libro2 = new Libro("electronica", "Jose", "3ra", "Educativo", "Bay", 1);
+                Global.biblioteLibros.Append(libro2);
+                Libro libro3 = new Libro("analisis", "Paola", "2da", "Educativo", "Bay", 1);
+                Global.biblioteLibros.Append(libro3);
+                Libro libro4 = new Libro("instalaciones", "Renan", "1da", "Educativo", "Lumbreras", 1);
+                Global.biblioteLibros.Append(libro4);
+                /*Console.WriteLine("-----");
+                Console.WriteLine("LIBROS: ");
+                Global.biblioteLibros.Display();
+                Console.ReadKey();
+                Console.Clear();*/
+                //Console.WriteLine("-----elimninamos");
+                //Global.biblioteLibros.Remove(libro2);
+                //Global.biblioteLibros.Remove(libro);
+                //Console.WriteLine("LIBROS: ");
+                //Global.biblioteLibros.Display();
+                //Console.WriteLine(libro.ToString());
+
+
+                //imprimimos el libro
+
+                //----
                 while (true)
                 {
                     Console.Clear();

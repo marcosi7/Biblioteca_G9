@@ -48,26 +48,26 @@ namespace Biblioteca_G9
                 return LastItem(unNodo.Siguiente);
             }
         }
-        public void Remove(object recibido)
-        {
-            Nodo temporal = Inicio, prev = null;
+        //public void Remove(object recibido)
+        //{
+        //    Nodo temporal = Inicio, prev = null;
 
-            if (temporal != null && temporal.Dato == recibido)
-            {
-                Inicio = temporal.Siguiente;
-                return;
-            }
-            while (temporal != null && temporal.Dato == recibido)
-            {
-                prev = temporal;
-                temporal = temporal.Siguiente;
-            }
+        //    if (temporal != null && temporal.Dato == recibido)
+        //    {
+        //        Inicio = temporal.Siguiente;
+        //        return;
+        //    }
+        //    while (temporal != null && temporal.Dato == recibido)
+        //    {
+        //        prev = temporal;
+        //        temporal = temporal.Siguiente;
+        //    }
 
-            if (temporal != null)
-                return;
-            prev.Siguiente = temporal.Siguiente;
+        //    if (temporal != null)
+        //        return;
+        //    prev.Siguiente = temporal.Siguiente;
 
-        }
+        //}
         public void Display()
         {
             Nodo tnodo = Inicio;
@@ -146,12 +146,54 @@ namespace Biblioteca_G9
             }
             return index;
         }
+        //retorna el objeto encontrado 
+        public Libro retornaOBJBuscaNomLibro(string data)
+        {
+            Libro index = null;
+            Nodo current = Inicio;
+            while (current != null)
+            {
+                Libro obj = (Libro)current.Dato;
+                if (data.Equals(obj.titulo))
+                {
+                    index = (Libro) obj;
+                    break;
+                }
+                
+                current = current.Siguiente;
+            }
+            return index;
+        }
         public ListaEnlazada Copy()
         {
             ListaEnlazada lista = new ListaEnlazada();
             lista.Inicio = Inicio;
             return lista;
         
+        }
+        //eliminar
+        public void Remove(object data)
+        {
+
+
+            Nodo current = Inicio;
+            Nodo tnodo = null;
+            Nodo node2 = null;
+
+            while (current != null)
+            {
+
+                if (!(data.Equals(current.Dato)))
+                {
+                    node2 = new Nodo(null);
+                    node2.Dato = current.Dato;//insertamos el nuevo dato
+                    node2.Siguiente = tnodo;//ponemos como siguiente
+                    tnodo = node2;//ultimo nodo
+                }
+                current = current.Siguiente;
+            }
+            Inicio = node2;
+
         }
         public void printAllNodes()
         {

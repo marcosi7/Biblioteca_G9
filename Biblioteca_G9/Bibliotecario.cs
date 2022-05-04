@@ -78,6 +78,7 @@ namespace Biblioteca_G9
 
             Libro libro = new Libro(titulo, autor, edicion, genero, editorial, stock);
             libros.Append(libro);
+            Global.biblioteLibros.Append(libro); 
 
             Console.WriteLine("LIBROS: ");
             libros.Display();

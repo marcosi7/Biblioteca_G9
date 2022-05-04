@@ -8,12 +8,12 @@ namespace Biblioteca_G9
 {
     public class Libro
     {
-        private string titulo;
-        private string autor;
-        private string edicion;
-        private string genero;
-        private string editorial;
-        private int stock;
+        public string titulo { get; set; }
+        private string autor { get; set; }
+        private string edicion { get; set; }
+        private string genero { get; set; }
+        private string editorial { get; set; }
+        private int stock { get; set; }
 
         public Libro(string titulo, string autor, string edicion, string genero, string editorial, int stock)
         {
