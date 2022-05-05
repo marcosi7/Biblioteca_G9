@@ -80,15 +80,17 @@ namespace Biblioteca_G9
         public void hacerConsulta()
         {
             consultas.Display();
+            Console.WriteLine("ingrese un Codigo");
+            string cod = Console.ReadLine();
+            
             Console.WriteLine("Escriba su consulta: ");
-
             string mensaje = Console.ReadLine();
             string fecha = DateTime.Now.ToString();  
             string respuesta = " - ";
             string pend = "PENDIENTE";
 
             Console.Clear();
-            Consulta consulta = new Consulta(mensaje,fecha,respuesta,pend);
+            Consulta consulta = new Consulta(cod,mensaje,fecha,respuesta,pend);
             consultas.Append(consulta);
 
             consultas.Display();

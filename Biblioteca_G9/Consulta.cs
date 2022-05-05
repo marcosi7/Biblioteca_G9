@@ -8,12 +8,14 @@ namespace Biblioteca_G9
 {
     public class Consulta
     {
+        public string codigo { get; set; }
         private string mensaje { get; set; }
         private string fecha { get; set; }
         private string respuesta { get; set; }
         private string pendiente { get; set; }
-        public Consulta(string mens, string date, string answer, string status)
+        public Consulta(string cod,string mens, string date, string answer, string status)
         {
+            this.codigo=cod;
             this.mensaje = mens;
             this.fecha = date;
             this.respuesta = answer;
@@ -21,7 +23,7 @@ namespace Biblioteca_G9
         }
         public override string ToString()
         {
-            return $"{mensaje} | {fecha} | {respuesta} | {pendiente}";
+            return $"{codigo}|{mensaje} | {fecha} | {respuesta} | {pendiente}";
         }
     }
 }

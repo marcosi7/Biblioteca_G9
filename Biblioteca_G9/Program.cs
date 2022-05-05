@@ -6,7 +6,7 @@ namespace Biblioteca_G9
     {
         public static string name="royer";
         public static ListaEnlazada biblioteLibros = new ListaEnlazada();
-       
+        public static ListaEnlazada contestarConsulta = new ListaEnlazada();
 
     }
     public class Biblioteca
@@ -31,6 +31,13 @@ namespace Biblioteca_G9
                 Global.biblioteLibros.Append(libro3);
                 Libro libro4 = new Libro("instalaciones", "Renan", "1da", "Educativo", "Lumbreras", 1);
                 Global.biblioteLibros.Append(libro4);
+
+                Consulta consulta1 = new Consulta( "1","Tiene el libro de Harry potter"," ","-","PENDIENTE");
+                Global.contestarConsulta.Append(consulta1);
+                Consulta consulta2 = new Consulta( "2","Tiene las fabulas de ezopo"," ","-","PENDIENTE");
+                Global.contestarConsulta.Append(consulta2);
+                Consulta consulta3 = new Consulta( "3","Tiene la saga de crepusculo"," ","-","PENDIENTE");
+                Global.contestarConsulta.Append(consulta3);
                 /*Console.WriteLine("-----");
                 Console.WriteLine("LIBROS: ");
                 Global.biblioteLibros.Display();

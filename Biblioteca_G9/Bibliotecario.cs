@@ -88,24 +88,25 @@ namespace Biblioteca_G9
         public void contestarConsulta()
         { 
             Console.WriteLine("Lista de Consultas");
-            consultas.Display();
+            Global.contestarConsulta.Display();
              
-             string mensa = Console.ReadLine();
-             string fecha = DateTime.Now.ToString();
-             string respuest=" ";
-             string pendi = "Pendiente";
-               
-                if(pendi == "Pendiente")
-                {
-                    Console.WriteLine("Ingrese su respuesta");
-                    string respuest2 = Console.ReadLine();
-                    pendi="Respondido";  
-                }
-            Console.Clear();
-            Consulta consulta = new Consulta(mensa,fecha,pendi,respuest);
-            consultas.Append(consulta);
+            Console.WriteLine("Ingrese codigo consulta");
+            string respuest1 = Console.ReadLine();
             
-            consultas.Display();
+            Console.WriteLine("Ingrese Respuesta");
+            string respuest2 = Console.ReadLine();
+            Console.Clear();
+
+            
+            Consulta contconsul = Global.contestarConsulta.retornaOBJBETOconsulta(respuest1);
+            consultas.Append(contconsul);
+            Global.contestarConsulta.Remove(contconsul);
+            Console.Clear();
+            
+        
+            
+            Console.WriteLine("RESPONDIDO");
+            Console.WriteLine(respuest2);
 
         }
         public void hacerPedido()

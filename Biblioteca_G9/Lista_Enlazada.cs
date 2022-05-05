@@ -164,6 +164,25 @@ namespace Biblioteca_G9
             }
             return index;
         }
+
+          public Consulta retornaOBJBETOconsulta(string data)
+        {
+            Consulta index = null;
+            Nodo current = Inicio;
+            while (current != null)
+            {
+                Consulta obj = (Consulta)current.Dato;
+                if (data.Equals(obj.codigo))
+                {
+                    index = (Consulta) obj;
+                    break;
+                }
+                
+                current = current.Siguiente;
+            }
+            return index;
+        }
+
         public ListaEnlazada Copy()
         {
             ListaEnlazada lista = new ListaEnlazada();
